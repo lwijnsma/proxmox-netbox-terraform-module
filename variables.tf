@@ -28,6 +28,11 @@ variable "vm_disk_size" {
   type = number
   default = 20
 }
+variable "user_data_file" {
+  type = string
+  default = "cloud-init/user-data.yaml"
+  
+}
 variable "vm_memory" {
   type = number
   default = 2048
@@ -57,7 +62,6 @@ variable "sshkeys" {
 }
 variable "cloud_image_url" {
   type = string
-  default = "https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2"
 }
 variable "ipv4" {
   type = object({
