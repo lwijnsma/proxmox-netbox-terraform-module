@@ -62,7 +62,6 @@ variable "sshkeys" {
 }
 variable "cloud_image_url" {
   type = string
-  default = "https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2"
 }
 variable "ipv4" {
   type = object({
