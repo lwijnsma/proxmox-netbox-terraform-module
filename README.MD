@@ -3,6 +3,7 @@
 
 ## Usage
 
+Create a main.tf with the following content:
 ```HCL
 module "proxmox" {
   source = "github.com/lwijnsma/proxmox-netbox-terraform-module"
@@ -26,3 +27,25 @@ module "proxmox" {
   }
 }
 ```
+
+Create a provider.tf with the following:
+```HCL
+provider "netbox" {
+  server_url = "https://demo.netbox.dev"
+  api_token  = "<your api key>"
+}
+
+
+provider "proxmox" {
+  endpoint = "https://10.0.0.2:8006/"
+
+  username = "username@realm"
+  password = "a-strong-password"
+  ssh {
+    agent       = false
+    private_key = file("~/.ssh/id_rsa")
+  }
+}
+```
+See [e-breuninger/netbox](https://registry.terraform.io/providers/e-breuninger/netbox/latest/docs) For more info about the netbox provider settings
+See [bpg/proxmox](https://registry.terraform.io/providers/bpg/proxmox/latest/docs) for more info about the proxmox provider settings
