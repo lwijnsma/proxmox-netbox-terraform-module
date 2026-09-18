@@ -100,7 +100,7 @@ resource "proxmox_virtual_environment_vm" "myvm" {
 
   disk {
     datastore_id = var.vm_datastore
-    file_id      = proxmox_virtual_environment_download_file.cloud_image.id
+    file_id      = proxmox_download_file.cloud_image.id
     interface    = "virtio0"
     iothread     = true
     size         = var.vm_disk_size
