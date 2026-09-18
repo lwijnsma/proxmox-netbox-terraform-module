@@ -42,6 +42,11 @@ resource "netbox_available_ip_address" "vm_ip" {
   virtual_machine_interface_id = resource.netbox_interface.myvm-eno1.id
 }
 
+resource "netbox_primary_ip" "myvm_primary_ip" {
+  ip_address_id      = resource.netbox_available_ip_address.vm_ip.id
+  virtual_machine_id = resource.netbox_virtual_machine.myvm.id
+}
+
 resource "proxmox_virtual_environment_file" "user_data" {
   content_type = "snippets"
   datastore_id = "local"
