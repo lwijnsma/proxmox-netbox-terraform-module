@@ -38,6 +38,7 @@ resource "netbox_interface" "myvm-eno1" {
 resource "netbox_available_ip_address" "vm_ip" {
   ip_range_id =  data.netbox_ip_range.ip_range.id
   status       = "active"
+  dns_name    = var.vm_hostname
   virtual_machine_interface_id = resource.netbox_interface.myvm-eno1.id
 }
 
