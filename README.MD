@@ -6,7 +6,7 @@
 Create a main.tf with the following content:
 ```HCL
 module "proxmox" {
-  source = "github.com/lwijnsma/proxmox-netbox-terraform-module"
+  source = "github.com/lwijnsma/proxmox-netbox-terraform-vm-module"
 
   vm_cpus = 2
   vm_memory = 2048
