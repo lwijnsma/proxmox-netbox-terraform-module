@@ -11,7 +11,7 @@ data "netbox_device_role" "role" {
 }
 
 data "netbox_ip_range" "ip_range" {
-  contains = var.ipv4.address
+  contains = var.subnet
 }
 
 resource "netbox_virtual_machine" "myvm" {
@@ -41,7 +41,7 @@ resource "proxmox_virtual_environment_file" "user_data" {
   node_name    = var.pve_node
 
   source_raw {
-    data = templatefile("${path.module}/cloud-init/user-data.tftpl", { 
+    data = templatefile("${path.module}/cloud-init/user-data.tftpl", {
       qemu_agent = var.qemu_agent,
       vm_hostname = var.vm_hostname,
       vm_username = var.vm_username,
@@ -57,7 +57,7 @@ resource "proxmox_virtual_environment_file" "meta_data" {
   datastore_id = "local"
   node_name    = var.pve_node
 
-  source_raw { 
+  source_raw {
       data =  <<EOF
 local-hostname: ${var.vm_hostname}
 EOF
@@ -98,7 +98,7 @@ resource "proxmox_virtual_environment_vm" "myvm" {
     iothread     = true
     size         = var.vm_disk_size
   }
-  
+
   initialization {
     ip_config {
         ipv4 {
