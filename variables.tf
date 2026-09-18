@@ -53,7 +53,7 @@ variable "netbox_tenant" {
 }
 variable "netbox_device_role" {
   type = string
-  default = "application-server"
+  default = "Application Server"
 }
 variable "sshkeys" {
   type = list(string)

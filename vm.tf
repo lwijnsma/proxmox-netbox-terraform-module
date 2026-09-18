@@ -7,7 +7,7 @@ data "netbox_tenant" "tenant" {
 }
 
 data "netbox_device_role" "role" {
-  slug = var.netbox_device_role
+  name = var.netbox_device_role
 }
 
 data "netbox_ip_range" "ip_range" {
