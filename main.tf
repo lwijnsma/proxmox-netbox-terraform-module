@@ -2,11 +2,11 @@ terraform {
   required_providers {
     proxmox = {
       source = "bpg/proxmox"
-      version = "0.68.0"
+      version = "0.113.1s"
     }
     netbox = {
       source  = "e-breuninger/netbox"
-      version = "3.9.2"
+      version = "5.8.0"
     }
   }
 }
