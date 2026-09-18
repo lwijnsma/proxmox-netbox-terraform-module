@@ -7,7 +7,7 @@ data "netbox_tenant" "tenant" {
 }
 
 data "netbox_device_role" "role" {
-  name = var.netbox_device_role
+  slug = var.netbox_device_role
 }
 
 data "netbox_ip_range" "ip_range" {
@@ -72,14 +72,7 @@ EOF
   }
 }
 
-resource "proxmox_virtual_environment_download_file" "cloud_image" {
-  content_type = "iso"
-  datastore_id = "local"
-  node_name    = var.pve_node
-  url          = var.cloud_image_url
-}
-
-resource "proxmox_download_file" "latest_debian_12_bookworm_qcow2" {
+resource "proxmox_download_file" "cloud_image" {
   content_type = "import"
   datastore_id = "local"
   file_name    = regex("[a-zA-Z0-9-]*[.]qcow2$", var.cloud_image_url)
