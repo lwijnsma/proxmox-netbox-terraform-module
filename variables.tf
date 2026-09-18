@@ -10,11 +10,11 @@ variable "vm_hostname" {
   type = string
 }
 variable "vm_username" {
-  type = string  
+  type = string
 }
 variable "vm_tags" {
   type = list(string)
-  default = ["terraform"]  
+  default = ["terraform"]
 }
 variable "vm_bridge" {
   type = string
@@ -57,14 +57,8 @@ variable "sshkeys" {
 }
 variable "cloud_image_url" {
   type = string
-  default = "https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2"
+  default = "https://cloud.debian.org/images/cloud/trixie/latest/debian-13-generic-amd64.qcow2"
 }
-variable "ipv4" {
-  type = object({
-    address = string
-    gateway = optional(string)
-  })
-  default = {
-    address = "dhcp"
-  }
+variable "subnet" {
+  type = string
 }

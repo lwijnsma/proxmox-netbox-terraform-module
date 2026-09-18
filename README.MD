@@ -21,10 +21,7 @@ module "proxmox" {
   sshkeys = ["ssh-ed25519 <SSH_KEY>"]
   
   vm_vlan = "1"
-  ipv4 = {
-    address = "xx.xx.xx.xx/24"
-    gateway = "xx.xx.xx.xx"
-  }
+  subnet = "xxx.xxx.xxx.xxx/xx"
 }
 ```
 
