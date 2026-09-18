@@ -17,11 +17,17 @@ data "netbox_ip_range" "ip_range" {
 resource "netbox_virtual_machine" "myvm" {
   cluster_id   = data.netbox_cluster.vm_cluster.id
   name         = var.vm_hostname
-  disk_size_gb = var.vm_disk_size
   memory_mb    = var.vm_memory
   vcpus        = var.vm_cpus
   role_id      = data.netbox_device_role.role.id
   tenant_id    = data.netbox_tenant.tenant.id
+}
+
+resource "netbox_virtual_disk" "scsi0" {
+  name               = "scsi0"
+  description        = "Main disk"
+  size_mb            = var.vm_disk_size * 1024
+  virtual_machine_id = netbox_virtual_machine.myvm.id
 }
 
 resource "netbox_interface" "myvm-eno1" {
