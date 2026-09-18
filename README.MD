@@ -20,7 +20,7 @@ module "proxmox" {
   vm_username = "username"
   sshkeys = ["ssh-ed25519 <SSH_KEY>"]
   
-  vm_vlan = "1"
+  vm_vlan_id = "1"
   ip_range = "Netbox Ip range description"
 }
 ```

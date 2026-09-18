@@ -36,6 +36,10 @@ variable "vm_cpus" {
   type = number
   default = 2
 }
+variable "vm_vlan_id" {
+  type = number
+  default = 1610
+}
 variable "vm_description" {
   type = string
   default = "Managed by Terraform"
