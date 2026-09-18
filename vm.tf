@@ -109,7 +109,7 @@ resource "proxmox_virtual_environment_vm" "myvm" {
     ip_config {
         ipv4 {
           address = resource.netbox_available_ip_address.vm_ip.ip_address
-          gateway = var.ipv4.gateway
+          gateway = cidrhost(resource.netbox_available_ip_address.vm_ip.ip_address, 1)
       }
     }
     user_data_file_id = proxmox_virtual_environment_file.user_data.id
