@@ -11,7 +11,7 @@ data "netbox_device_role" "role" {
 }
 
 data "netbox_ip_range" "ip_range" {
-  contains = var.subnet
+  description = var.ip_range
 }
 
 resource "netbox_virtual_machine" "myvm" {

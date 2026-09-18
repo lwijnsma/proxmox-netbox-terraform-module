@@ -21,7 +21,7 @@ module "proxmox" {
   sshkeys = ["ssh-ed25519 <SSH_KEY>"]
   
   vm_vlan = "1"
-  subnet = "xxx.xxx.xxx.xxx/xx"
+  ip_range = "Netbox Ip range description"
 }
 ```
 

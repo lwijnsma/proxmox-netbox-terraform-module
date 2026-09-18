@@ -59,6 +59,7 @@ variable "cloud_image_url" {
   type = string
   default = "https://cloud.debian.org/images/cloud/trixie/latest/debian-13-generic-amd64.qcow2"
 }
-variable "subnet" {
+variable "ip_range" {
   type = string
+  default = "VM's"
 }
