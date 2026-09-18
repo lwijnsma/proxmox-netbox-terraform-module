@@ -79,6 +79,14 @@ resource "proxmox_virtual_environment_download_file" "cloud_image" {
   url          = var.cloud_image_url
 }
 
+resource "proxmox_download_file" "latest_debian_12_bookworm_qcow2" {
+  content_type = "import"
+  datastore_id = "local"
+  file_name    = regex("[a-zA-Z0-9-]*\.qcow2$", var.cloud_image_url)
+  node_name    = var.pve_node
+  url          = var.cloud_image_url
+}
+
 resource "proxmox_virtual_environment_vm" "myvm" {
   name        = var.vm_hostname
   description = var.vm_description
